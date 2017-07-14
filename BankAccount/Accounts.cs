@@ -24,8 +24,6 @@ namespace BankAccount
         public double Balance { get; }
         public string Type { get; }
 
-        // methods (verbs)
-
         public Accounts()
         {
             //default contructor
@@ -34,7 +32,7 @@ namespace BankAccount
         // A way to view the current balance
         public virtual void View()
         {
-            // Console.WriteLine(balance);
+            // Console.WriteLine("Balance: " + balance);
         }
 
         // User must be able to deposit money into either account

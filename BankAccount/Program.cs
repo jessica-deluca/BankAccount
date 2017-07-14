@@ -10,19 +10,13 @@ namespace BankAccount
     {
         static void Main(string[] args)
         {
-            // All menu options listed above must have functionality behind them
             // Program should run until user selects 'Exit'
             // After each transaction, the current balance should be displayed on the screen.
             // Be sure the user can continue making selections from the menu until all desired transactions have been completed.
 
-            // Must instantiate one client object; call Client class: 
-            Client client1 = new Client();
-
-            // Must instantiate one checking account object; call CheckingAccount class:
-            // CheckingAccount checkingAccount1 = new checkingAccount();
-
-            // Must instantiate one savings account object; call SavingAccount class:
-            // SavingAccount savingAccount1 = new savingsAccount();
+            Client client1 = new Client(); //instantiate client object
+            // CheckingAccount checkingAccount1 = new checkingAccount(); //instantiate checking account object
+            // SavingAccount savingAccount1 = new savingsAccount(); //instantiate savings account object
 
             Console.WriteLine("Choose an option from the menu below:");
             string[] mainMenu = { "1. View Client Information", "2. View Account Information", "3. Deposit Funds", "4. Withdraw Funds", "5. Exit" };
@@ -34,11 +28,11 @@ namespace BankAccount
 
             int mainMenuOptionSelected = int.Parse(Console.ReadLine());
 
-            if (mainMenuOptionSelected == 1) // View Client Information
+            if (mainMenuOptionSelected == 1) // option 1 = View Client Information
             {
                 client1.View(); // calls View from Client class
             }
-            else if (mainMenuOptionSelected == 2) // View Account Information
+            else if (mainMenuOptionSelected == 2) // option 2 = View Account Information
             {
                 Console.WriteLine("Choose an option from the menu below:");
                 string[] accountBalanceMenu = { "a. Checking Account Balance", "b. Savings Account Balance" };
