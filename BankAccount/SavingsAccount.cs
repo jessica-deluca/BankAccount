@@ -8,10 +8,9 @@ namespace BankAccount
 {
     class SavingsAccount : Accounts // Savings class inheriting from Accounts class
     {
+        protected double minimumBalance;
 
-        // needs to include 1 constructor & 1 property
-        // Savings Account must include a minimum balance
-        // User cannot withdraw money if balance will drop below minimum
+        public double MinimumBalance { get; }
 
         public SavingsAccount()
         {
@@ -23,19 +22,20 @@ namespace BankAccount
             this.balance = balance;
         }
 
-        public override void View()
+        public override double Withdraw() // NEED TO FIX
         {
-            base.View();
-        }
+            minimumBalance = 500d;
 
-        public override void Deposit()
-        {
-            base.Deposit();
-        }
-
-        public override void Withdraw()
-        {
-            base.Withdraw();
+            Console.WriteLine("Enter withdraw amount.");
+            double amountWithdrawn = double.Parse(Console.ReadLine());
+            balance -= amountWithdrawn;
+            while (balance < minimumBalance)
+            {
+                Console.WriteLine("Withdraw amount exceeds minimum balance of " + minimumBalance + ". Please enter a new amount.");
+                amountWithdrawn = double.Parse(Console.ReadLine());
+                balance -= amountWithdrawn;
+            }
+            return balance;
         }
     }
 }

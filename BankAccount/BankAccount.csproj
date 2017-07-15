@@ -44,8 +44,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Accounts.cs" />
+    <Compile Include="MenuOutputs.cs" />
     <Compile Include="CheckingAccount.cs" />
     <Compile Include="Client.cs" />
+    <Compile Include="Menus.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SavingsAccount.cs" />

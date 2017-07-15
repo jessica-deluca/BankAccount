@@ -10,16 +10,54 @@ namespace BankAccount
     {
         static void Main(string[] args)
         {
+            // FIX SAVINGS ACCOUNT RESTRICTION
+
+            // STRETCH TASK
+            // Giving the ability to enter a user name when the program begins would make the program useful for multiple users.
+            // Let user log-in with their username (do not worry about trying to add passwords)
+
+            //string clientUserName;
+
+            //do
+            //{
+            //    Console.WriteLine("Please enter your username.");
+            //    clientUserName = Console.ReadLine().ToLower();
+
+            //    Dictionary<string, string> userNames = new Dictionary<string, string>()
+            //    {
+            //        { "jessicaUserName", "?" }, // { "key", "value" }
+            //        { "jordanUserName", "?" },
+            //        { "danielUserName", "?" },
+            //        { "laurenUserName", "?" }
+            //    };
+
+            //    foreach (KeyValuePair<string, string> userName in userNames)
+            //    {
+            //        if (clientUserName == userName.Key) // if clientUserName is equal to any of the keys in the dictionary
+            //        {
+            //            Client client1 = new Client(); //then instantiate client object
+            //        }
+            //        else
+            //        {
+            //            Console.WriteLine("Incorrect user name.");
+            //        }
+            //    }
+            //}
+            //while (clientUserName != userName.Key);
+
+
             int returnMenuOptionSelected;
 
             Client client1 = new Client(); //instantiate client object
             CheckingAccount checkingAccount1 = new CheckingAccount(20000d); //instantiate checking account object
             SavingsAccount savingsAccount1 = new SavingsAccount(1000000d); //instantiate savings account object
+            MenuOutputs accountTypeMenu = new MenuOutputs();
+            MenuOutputs invalidEntry = new MenuOutputs();
 
             do
             {
                 Console.WriteLine("Choose an option from the menu below:");
-                string[] mainMenu = { "1. View Client Information", "2. View Account Information", "3. Deposit Funds", "4. Withdraw Funds", "5. Exit" };
+                string[] mainMenu = { "1. View Client Information", "2. View Account Balance", "3. Deposit Funds", "4. Withdraw Funds", "5. Exit" };
                 Console.WriteLine(mainMenu[0]);
                 Console.WriteLine(mainMenu[1]);
                 Console.WriteLine(mainMenu[2]);
@@ -28,16 +66,13 @@ namespace BankAccount
 
                 int mainMenuOptionSelected = int.Parse(Console.ReadLine());
 
-                if (mainMenuOptionSelected == 1) // option 1 = View Client Information
+                if (mainMenuOptionSelected == 1) // View Client Information
                 {
                     client1.View(); // calls View from Client class
                 }
-                else if (mainMenuOptionSelected == 2) // option 2 = View Account Information
+                else if (mainMenuOptionSelected == 2) // View Account Balance
                 {
-                    Console.WriteLine("Choose an option from the menu below:");
-                    string[] accountBalanceMenu = { "a. Checking Account Balance", "b. Savings Account Balance" };
-                    Console.WriteLine(accountBalanceMenu[0]);
-                    Console.WriteLine(accountBalanceMenu[1]);
+                    accountTypeMenu.CreateMenu();
 
                     char accountInformationMenuOptionSelected = char.Parse(Console.ReadLine().ToLower());
 
@@ -49,13 +84,14 @@ namespace BankAccount
                     {
                         savingsAccount1.View(); // calls View from SavingsAccount class
                     }
+                    else
+                    {
+                        invalidEntry.InvalidEntryResponse();
+                    }
                 }
                 else if (mainMenuOptionSelected == 3) // Deposit Funds
                 {
-                    Console.WriteLine("Choose an option from the menu below:");
-                    string[] depositFundsMenu = { "a. To Checking Account", "b. To Savings Account" };
-                    Console.WriteLine(depositFundsMenu[0]);
-                    Console.WriteLine(depositFundsMenu[1]);
+                    accountTypeMenu.CreateMenu();
 
                     char depositFundsMenuOptionSelected = char.Parse(Console.ReadLine().ToLower());
 
@@ -67,29 +103,38 @@ namespace BankAccount
                     {
                         savingsAccount1.Deposit(); // calls Deposit from SavingsAccount class
                     }
+                    else
+                    {
+                        invalidEntry.InvalidEntryResponse();
+                    }
                 }
                 else if (mainMenuOptionSelected == 4) // Withdraw Funds
                 {
-                    Console.WriteLine("Choose an option from the menu below:");
-                    string[] withdrawFundsMenu = { "a. From Checking Account", "b. From Savings Account" };
-                    Console.WriteLine(withdrawFundsMenu[0]);
-                    Console.WriteLine(withdrawFundsMenu[1]);
+                    accountTypeMenu.CreateMenu();
 
                     char withdrawFundsMenuOptionSelected = char.Parse(Console.ReadLine().ToLower());
 
                     if (withdrawFundsMenuOptionSelected == 'a') // To Checking Account
                     {
-                        checkingAccount1.Withdraw(); // calls Deposit from CheckingAccount class
+                        Console.WriteLine("Current balance: $" + checkingAccount1.Withdraw()); // calls Deposit from CheckingAccount class
                     }
                     else if (withdrawFundsMenuOptionSelected == 'b') // To Savings Account
                     {
-                        savingsAccount1.Withdraw(); // calls Deposit from SavingsAccount class
+                        Console.WriteLine("Current balance: $" + savingsAccount1.Withdraw()); // calls Deposit from SavingsAccount class
+                    }
+                    else
+                    {
+                        invalidEntry.InvalidEntryResponse();
                     }
                 }
                 else if (mainMenuOptionSelected == 5) // Exit
                 {
-                    Console.WriteLine("Thank you. Please come again.");
+                    Console.WriteLine("Thank you. Have a nice day!");
                     return;
+                }
+                else
+                {
+                    invalidEntry.InvalidEntryResponse();
                 }
 
                 Console.WriteLine("Return to main menu or exit?");
@@ -99,11 +144,10 @@ namespace BankAccount
                 returnMenuOptionSelected = int.Parse(Console.ReadLine());
                 if (returnMenuOptionSelected == 2)
                 {
-                    Console.WriteLine("Thank you. Please come again.");
+                    Console.WriteLine("Thank you. Have a nice day!");
                 }
             }
             while (returnMenuOptionSelected == 1); // returns to main menu
-
         }
     }
 }

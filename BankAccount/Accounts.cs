@@ -8,12 +8,6 @@ namespace BankAccount
 {
     class Accounts // base class
     {
-        // All accounts must include the following:
-
-        // An account number
-        // Balance
-        // An account type(savings or checking)
-
         protected string type;
         protected string accountNumber;
         protected double balance;
@@ -37,7 +31,7 @@ namespace BankAccount
         // A way to view the current balance
         public virtual void View()
         {
-            Console.WriteLine("Balance: " + balance.ToString("C2"));
+            Console.WriteLine("Balance: $" + balance);
         }
 
         // User must be able to deposit money into either account
@@ -46,16 +40,16 @@ namespace BankAccount
             Console.WriteLine("Enter deposit amount.");
             double amountDeposited = double.Parse(Console.ReadLine()); 
             balance += amountDeposited;
-            Console.WriteLine("Current balance: " + balance.ToString("C2"));
+            Console.WriteLine("Current balance: $" + balance);
         }
 
         // User must be able to withdraw money from either account
-        public virtual void Withdraw()
+        public virtual double Withdraw()
         {
             Console.WriteLine("Enter withdraw amount.");
             double amountWithdrawn = double.Parse(Console.ReadLine()); 
             balance -= amountWithdrawn;
-            Console.WriteLine("Current balance: " + balance.ToString("C2"));
+            return balance;
         }
     }
 }

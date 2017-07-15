@@ -6,18 +6,11 @@ using System.Threading.Tasks;
 
 namespace BankAccount
 {
-    class Client
+    class Client // all client information should be filled in here
     {
-        //For now, the application will have only one client that is hard-coded into the system.
-        // Client class should contain:
-        // 3 properties
-        // 1 constructor
-        // 1 method
-        // Client information should be filled in here
-
-        protected string clientName;
-        protected string clientCheckingAccountNumber;
-        protected string clientSavingsAccountNumber;
+        private string clientName;
+        private string clientCheckingAccountNumber;
+        private string clientSavingsAccountNumber;
 
         public string ClientName { get; }
         public string ClientCheckingAccountNumber { get; }
