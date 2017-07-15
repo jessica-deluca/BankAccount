@@ -10,13 +10,11 @@ namespace BankAccount
     {
         static void Main(string[] args)
         {
-            // how can client 1 continue to make deposits & withdraws?
-
             int returnMenuOptionSelected;
 
             Client client1 = new Client(); //instantiate client object
-            CheckingAccount checkingAccount1 = new CheckingAccount(); //instantiate checking account object
-            SavingsAccount savingsAccount1 = new SavingsAccount(); //instantiate savings account object
+            CheckingAccount checkingAccount1 = new CheckingAccount(20000d); //instantiate checking account object
+            SavingsAccount savingsAccount1 = new SavingsAccount(1000000d); //instantiate savings account object
 
             do
             {

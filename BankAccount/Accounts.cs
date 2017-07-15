@@ -29,12 +29,10 @@ namespace BankAccount
             //default contructor
         }
 
-        //public Accounts(string type, string accountNumber, double balance)
-        //{
-        //    this.type = type;
-        //    this.accountNumber = accountNumber;
-        //    this.balance = balance;
-        //}
+        public Accounts(double balance)
+        {
+            this.balance = balance;
+        }
 
         // A way to view the current balance
         public virtual void View()

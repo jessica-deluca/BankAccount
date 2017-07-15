@@ -18,24 +18,24 @@ namespace BankAccount
             //default constructor
         }
 
+        public SavingsAccount(double balance)
+        {
+            this.balance = balance;
+        }
+
         public override void View()
         {
-            balance = 1000000d;
             base.View();
         }
 
         public override void Deposit()
         {
-            balance = 1000000d;
             base.Deposit();
         }
 
         public override void Withdraw()
         {
-            balance = 1000000d;
             base.Withdraw();
         }
-
-
     }
 }
