@@ -48,11 +48,11 @@ namespace BankAccount
 
             int returnMenuOptionSelected;
 
-            Client client1 = new Client(); //instantiate client object
-            CheckingAccount checkingAccount1 = new CheckingAccount(20000d); //instantiate checking account object
-            SavingsAccount savingsAccount1 = new SavingsAccount(1000000d); //instantiate savings account object
-            MenuOutputs accountTypeMenu = new MenuOutputs();
-            MenuOutputs invalidEntry = new MenuOutputs();
+            Client client1 = new Client(); // instantiate client object
+            CheckingAccount checkingAccount1 = new CheckingAccount(20000d); // instantiate checking account object with starting balance
+            SavingsAccount savingsAccount1 = new SavingsAccount(1000000d); // instantiate savings account object with starting balance
+            MenuOutputs accountTypeMenu = new MenuOutputs(); // instantiate account type menu object
+            MenuOutputs invalidEntry = new MenuOutputs(); // instantiate invalid entry object
 
             do
             {
@@ -72,15 +72,15 @@ namespace BankAccount
                 }
                 else if (mainMenuOptionSelected == 2) // View Account Balance
                 {
-                    accountTypeMenu.CreateMenu();
+                    accountTypeMenu.CreateAccountTypeMenu();
 
                     char accountInformationMenuOptionSelected = char.Parse(Console.ReadLine().ToLower());
 
-                    if (accountInformationMenuOptionSelected == 'a') // Checking Account Balance
+                    if (accountInformationMenuOptionSelected == 'a') // Checking Account
                     {
                         checkingAccount1.View(); // calls View from CheckingAccount class
                     }
-                    else if (accountInformationMenuOptionSelected == 'b')
+                    else if (accountInformationMenuOptionSelected == 'b') // Savings Account
                     {
                         savingsAccount1.View(); // calls View from SavingsAccount class
                     }
@@ -91,15 +91,15 @@ namespace BankAccount
                 }
                 else if (mainMenuOptionSelected == 3) // Deposit Funds
                 {
-                    accountTypeMenu.CreateMenu();
+                    accountTypeMenu.CreateAccountTypeMenu();
 
                     char depositFundsMenuOptionSelected = char.Parse(Console.ReadLine().ToLower());
 
-                    if (depositFundsMenuOptionSelected == 'a') // To Checking Account
+                    if (depositFundsMenuOptionSelected == 'a') // Checking Account
                     {
                         checkingAccount1.Deposit(); // calls Deposit from CheckingAccount class
                     }
-                    else if (depositFundsMenuOptionSelected == 'b') // To Savings Account
+                    else if (depositFundsMenuOptionSelected == 'b') // Savings Account
                     {
                         savingsAccount1.Deposit(); // calls Deposit from SavingsAccount class
                     }
@@ -110,15 +110,15 @@ namespace BankAccount
                 }
                 else if (mainMenuOptionSelected == 4) // Withdraw Funds
                 {
-                    accountTypeMenu.CreateMenu();
+                    accountTypeMenu.CreateAccountTypeMenu();
 
                     char withdrawFundsMenuOptionSelected = char.Parse(Console.ReadLine().ToLower());
 
-                    if (withdrawFundsMenuOptionSelected == 'a') // To Checking Account
+                    if (withdrawFundsMenuOptionSelected == 'a') // Checking Account
                     {
                         Console.WriteLine("Current balance: $" + checkingAccount1.Withdraw()); // calls Deposit from CheckingAccount class
                     }
-                    else if (withdrawFundsMenuOptionSelected == 'b') // To Savings Account
+                    else if (withdrawFundsMenuOptionSelected == 'b') // Savings Account
                     {
                         Console.WriteLine("Current balance: $" + savingsAccount1.Withdraw()); // calls Deposit from SavingsAccount class
                     }

@@ -8,7 +8,7 @@ namespace BankAccount
 {
     abstract class Menus
     {
-        public abstract void CreateMenu();
+        public abstract void CreateAccountTypeMenu();
 
         public abstract void InvalidEntryResponse();
     }

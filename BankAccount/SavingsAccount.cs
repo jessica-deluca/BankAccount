@@ -17,7 +17,7 @@ namespace BankAccount
             //default constructor
         }
 
-        public SavingsAccount(double balance)
+        public SavingsAccount(double balance) // starting balance can be entered in Program class
         {
             this.balance = balance;
         }

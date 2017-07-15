@@ -12,8 +12,6 @@ namespace BankAccount
         protected string accountNumber;
         protected double balance;
 
-        // properties (characteristics)
-
         public string AccountNumber { get; }
         public double Balance { get; }
         public string Type { get; }
@@ -28,14 +26,12 @@ namespace BankAccount
             this.balance = balance;
         }
 
-        // A way to view the current balance
-        public virtual void View()
+        public virtual void View() // user can view current balance
         {
             Console.WriteLine("Balance: $" + balance);
         }
 
-        // User must be able to deposit money into either account
-        public virtual void Deposit()
+        public virtual void Deposit() // user can deposit money into account
         {
             Console.WriteLine("Enter deposit amount.");
             double amountDeposited = double.Parse(Console.ReadLine()); 
@@ -43,8 +39,7 @@ namespace BankAccount
             Console.WriteLine("Current balance: $" + balance);
         }
 
-        // User must be able to withdraw money from either account
-        public virtual double Withdraw()
+        public virtual double Withdraw() // user can withdraw money from account
         {
             Console.WriteLine("Enter withdraw amount.");
             double amountWithdrawn = double.Parse(Console.ReadLine()); 
