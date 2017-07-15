@@ -11,7 +11,30 @@ namespace BankAccount
 
         // needs to include 1 constructor & 1 property
         // Savings Account must include a minimum balance
-        // User cannot withdraw money if balance will drop below minimum.
+        // User cannot withdraw money if balance will drop below minimum
+
+        public SavingsAccount()
+        {
+            //default constructor
+        }
+
+        public override void View()
+        {
+            balance = 1000000d;
+            base.View();
+        }
+
+        public override void Deposit()
+        {
+            balance = 1000000d;
+            base.Deposit();
+        }
+
+        public override void Withdraw()
+        {
+            balance = 1000000d;
+            base.Withdraw();
+        }
 
 
     }
