@@ -18,7 +18,7 @@ namespace BankAccount
 
         public Client()
         {
-                //default constructor
+                // default constructor
         }
 
         public void View()

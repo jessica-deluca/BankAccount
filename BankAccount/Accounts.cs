@@ -18,10 +18,10 @@ namespace BankAccount
 
         public Accounts()
         {
-            //default contructor
+            // default contructor
         }
 
-        public Accounts(double balance)
+        public Accounts(double balance) // starting checking & savings balances can be entered in Program class
         {
             this.balance = balance;
         }

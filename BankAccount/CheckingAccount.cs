@@ -10,7 +10,7 @@ namespace BankAccount
     {
         public CheckingAccount()
         {
-            //default constructor
+            // default constructor
         }
 
         public CheckingAccount(double balance) // starting balance can be entered in Program class

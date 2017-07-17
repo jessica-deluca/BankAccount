@@ -8,13 +8,13 @@ namespace BankAccount
 {
     class SavingsAccount : Accounts // Savings class inheriting from Accounts class
     {
-        protected double minimumBalance;
+        private double minimumBalance;
 
         public double MinimumBalance { get; }
 
         public SavingsAccount()
         {
-            //default constructor
+            // default constructor
         }
 
         public SavingsAccount(double balance) // starting balance can be entered in Program class
@@ -22,16 +22,17 @@ namespace BankAccount
             this.balance = balance;
         }
 
-        public override double Withdraw() // NEED TO FIX
+        public override double Withdraw()
         {
             minimumBalance = 500d;
 
             Console.WriteLine("Enter withdraw amount.");
             double amountWithdrawn = double.Parse(Console.ReadLine());
-            balance -= amountWithdrawn;
+            balance -= amountWithdrawn; // new balance = amount withdrawn - balance
             while (balance < minimumBalance)
             {
-                Console.WriteLine("Withdraw amount exceeds minimum balance of " + minimumBalance + ". Please enter a new amount.");
+                balance += amountWithdrawn; // add withdrawn amount back in
+                Console.WriteLine("Withdraw amount exceeds minimum balance of $" + minimumBalance + ". Please enter a new amount.");
                 amountWithdrawn = double.Parse(Console.ReadLine());
                 balance -= amountWithdrawn;
             }

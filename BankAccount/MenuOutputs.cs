@@ -20,5 +20,10 @@ namespace BankAccount
         {
             Console.WriteLine("Incorrect Entry.");
         }
+
+        public override void ExitResponse() // give user same response when exiting
+        {
+            Console.WriteLine("Thank you. Have a nice day!");
+        }
     }
 }

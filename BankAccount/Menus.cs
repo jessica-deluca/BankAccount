@@ -11,5 +11,7 @@ namespace BankAccount
         public abstract void CreateAccountTypeMenu();
 
         public abstract void InvalidEntryResponse();
+
+        public abstract void ExitResponse();
     }
 }
